@@ -36,9 +36,9 @@ KEY = 'ma clé envoie du pâté'
 
 
 class Aggregator(object):
-    def __init__(self, path_to_testfiles, pattern):
+    def __init__(self, path_to_files, pattern):
         self.pattern=pattern
-        self.path_to_testfiles = path_to_testfiles if path_to_testfiles else os.getcwd()
+        self.path_to_testfiles = path_to_files if path_to_files else os.getcwd()
         self.testfiles_list = []
         self.aggregate()
 
@@ -79,7 +79,7 @@ class PyHasher:
         return filepath
 
     def routine(self):
-        self. aggregator = self.aggregator(path_to_testfiles=self.path, pattern=self.pattern)
+        self. aggregator = self.aggregator(path_to_files=self.path, pattern=self.pattern)
         if self.aggregator.testfiles_list:
             self.logger.info("%s files in pipe. Proceeding..." % len(self.aggregator.testfiles_list))
             for elem in self.aggregator.testfiles_list:
