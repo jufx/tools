@@ -30,7 +30,7 @@ class Clogger:
     def get_logger(self):
         return logging.getLogger(name=self.logger_name)
 
-#KEY= b'TuMSfLik6RC50N0DGzanDHZpHEvXLQGd85-Zua356vY='
+#KEY = b'TuMSfLik6RC50N0DGzanDHZpHEvXLQGd85-Zua356vY=' # KEY SAMPLE
 SALT = b'0123456789'*4
 KEY = 'ma clé envoie du pâté'
 
