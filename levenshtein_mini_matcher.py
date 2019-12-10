@@ -3,11 +3,11 @@
 from fuzzywuzzy import fuzz
 
 
-class SimpleMatcher():
+class MiniMatcher():
     def __init__(self, one, two):
         self.value = fuzz.ratio(one, two)
 
 
 if __name__ == '__main__':
     # for testing purposes
-    print(SimpleMatcher('aaa', 'abbaa').value)
+    print(MiniMatcher('aaa', 'abbaa').value)
