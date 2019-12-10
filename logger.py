@@ -1,3 +1,7 @@
+# coding: utf8
+# works on python3.6+
+
+
 import logging
 from sys import stdout
 

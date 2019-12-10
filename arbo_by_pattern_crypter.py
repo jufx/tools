@@ -1,5 +1,8 @@
-import os
-import glob
+# coding: utf8
+# works on python3.6+
+
+
+from aggregator import Aggregator
 from cryptography.fernet import Fernet
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
@@ -11,19 +14,6 @@ from logger import Clogger
 LOGGING_LEVEL = 0
 SALT = b'0123456789'*4
 KEY = 'ma clé envoie du pâté'
-
-
-class Aggregator(object):
-    def __init__(self, path_to_files, pattern):
-        self.pattern=pattern
-        self.path_to_files = path_to_files if path_to_files else os.getcwd()
-        self.testfiles_list = []
-        self.aggregate()
-
-    def aggregate(self):
-        self.testfiles_list = []
-        for f in glob.iglob(self.path_to_files + self.pattern, recursive=True):
-            self.testfiles_list.append(f)
 
 
 class PyHasher:
