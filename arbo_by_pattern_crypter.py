@@ -27,7 +27,7 @@ class PyHasher:
         self.mode = mode
         self.kdf = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=100000,
                               backend=default_backend())
-        self.key=base64.urlsafe_b64encode(self.kdf.derive(self.passw))
+        self.key = base64.urlsafe_b64encode(self.kdf.derive(self.passw))
         self.fernet = Fernet(key=self.key)
         self.results=[]
         self.mode_checker()
@@ -77,8 +77,9 @@ class PyHasher:
         except Exception as e:
             self.logger.error(str(e))
 
-    def from_path_return_splitted_path_and_filename(self, filepath):
-        path=""
+    @staticmethod
+    def from_path_return_splitted_path_and_filename(filepath):
+        path = ""
         brute_path = [x for x in filepath.split("/")[:-1]]
         for elem in brute_path:
             path += elem + '/'
