@@ -1,0 +1,40 @@
+from wordcloud import WordCloud, STOPWORDS
+from PIL import Image
+import urllib
+#import requests
+import numpy as np
+import matplotlib.pyplot as plt
+import random
+
+
+
+words = 'folium plugins folium plugins sklearn feature_extraction text TfidfVectorizer sklearn feature_extraction text TfidfVectorizer sklearn cluster KMeans sklearn cluster KMeans sklearn metrics adjusted_rand_score sklearn metrics adjusted_rand_score numpy np  sklearn cluster DBSCAN  sklearn cluster DBSCAN  sklearn datasets samples_generator make_blobs  sklearn datasets samples_generator make_blobs  sklearn preprocessing StandardScaler  sklearn preprocessing StandardScaler  matplotlib pyplot plt  sklearn cluster KMeans  sklearn cluster KMeans  csv pandas pd numpy np mpl_toolkits basemap Basemap mpl_toolkits basemap Basemap matplotlib pyplot plt pylab rcParams pylab rcParams sklearn cluster DBSCAN sklearn cluster DBSCAN sklearn utils sklearn preprocessing StandardScaler sklearn preprocessing StandardScaler mpl_toolkits basemap Basemap mpl_toolkits basemap Basemap matplotlib pyplot plt pylab rcParams pylab rcParams sklearn cluster DBSCAN sklearn cluster DBSCAN sklearn utils sklearn preprocessing StandardScaler sklearn preprocessing StandardScaler mpl_toolkits basemap Basemap mpl_toolkits basemap Basemap matplotlib pyplot plt pylab rcParams pylab rcParams itertools matplotlib pyplot plt matplotlib ticker NullFormatter matplotlib ticker NullFormatter pandas pd numpy np matplotlib ticker ticker sklearn preprocessing sklearn preprocessing sklearn model_selection train_test_split sklearn model_selection train_test_split sklearn neighbors KNeighborsClassifier sklearn neighbors KNeighborsClassifier sklearn metrics sklearn metrics pandas pd time  sys numpy np  matplotlib pyplot plt numpy np  matplotlib pyplot plt pandas pd pylab pl numpy np sklearn linear_model sklearn linear_model sklearn metrics r2_score sklearn metrics r2_score numpy np  pandas pd scipy ndimage  scipy ndimage  scipy cluster hierarchy  scipy cluster hierarchy  scipy spatial distance_matrix  scipy spatial distance_matrix  matplotlib pyplot plt  matplotlib pyplot plt  sklearn manifold datasets  sklearn manifold datasets  sklearn cluster AgglomerativeClustering  sklearn cluster AgglomerativeClustering  sklearn datasets samples_generator make_blobs  sklearn datasets samples_generator make_blobs  sklearn preprocessing MinMaxScaler sklearn preprocessing MinMaxScaler scipy pylab scipy cluster hierarchy scipy cluster hierarchy fcluster scipy cluster hierarchy fcluster scipy cluster hierarchy fcluster scipy cluster hierarchy fcluster matplotlib cm cm pandas pd matplotlib pylab plt numpy np matplotlib plt matplotlib pyplot matplotlib pyplot matplotlib plt matplotlib pyplot matplotlib pyplot matplotlib plt matplotlib pyplot matplotlib pyplot pandas pd  numpy np pandas pd  matplotlib mpl matplotlib pyplot plt pandas pd numpy np IPython display display IPython display display IPython html widgets  IPython html widgets  IPython display display IPython display display ipywidgets interact interactive fixed interact_manual ipywidgets interact interactive fixed interact_manual sklearn model_selection train_test_split sklearn model_selection train_test_split sklearn linear_model LinearRegression sklearn linear_model LinearRegression sklearn model_selection cross_val_score sklearn model_selection cross_val_score sklearn model_selection cross_val_predict sklearn model_selection cross_val_predict matplotlib pyplot plt seaborn sns sklearn preprocessing PolynomialFeatures sklearn preprocessing PolynomialFeatures sklearn linear_model Ridge sklearn linear_model Ridge sklearn model_selection GridSearchCV sklearn model_selection GridSearchCV pandas pd numpy np matplotlib pyplot plt sklearn linear_model LinearRegression sklearn linear_model LinearRegression seaborn sns sklearn preprocessing PolynomialFeatures sklearn preprocessing PolynomialFeatures sklearn pipeline Pipeline sklearn pipeline Pipeline sklearn preprocessing StandardScaler sklearn preprocessing StandardScaler sklearn metrics mean_squared_error sklearn metrics mean_squared_error sklearn metrics r2_score sklearn metrics r2_score matplotlib pyplot plt numpy np numpy np  pandas pd matplotlib mpl matplotlib pyplot plt numpy np matplotlib pyplot plt numpy np pandas pd scipy optimize curve_fit scipy optimize curve_fit sklearn metrics r2_score sklearn metrics r2_score pandas pd pandas pd numpy np matplotlib pyplot plt numpy np pandas pd scipy optimize curve_fit scipy optimize curve_fit sklearn metrics r2_score sklearn metrics r2_score numpy np pandas pd matplotlib mpl matplotlib pyplot plt matplotlib numpy np numpy np pandas pd PIL Image PIL Image matplotlib mpl matplotlib pyplot plt matplotlib patches mpatches Wordcloud wordcloud WordCloud STOPWORDS wordcloud WordCloud STOPWORDS seaborn sns seaborn sns seaborn sns seaborn sns numpy np  matplotlib pyplot plt matplotlib pyplot plt pandas pd pylab pl numpy np sklearn linear_model sklearn linear_model pandas pd numpy np matplotlib pyplot plt seaborn sns matplotlib pyplot plt scipy stats scipy stats pandas pd pylab pl numpy np scipy optimize opt sklearn preprocessing sklearn preprocessing matplotlib pyplot plt sklearn preprocessing sklearn preprocessing sklearn model_selection train_test_split sklearn model_selection train_test_split sklearn linear_model LogisticRegression sklearn linear_model LogisticRegression sklearn metrics confusion_matrix sklearn metrics confusion_matrix sklearn metrics jaccard_similarity_score sklearn metrics jaccard_similarity_score sklearn metrics classification_report confusion_matrix sklearn metrics classification_report confusion_matrix itertools sklearn metrics log_loss sklearn metrics log_loss sklearn linear_model LogisticRegression sklearn linear_model LogisticRegression sklearn metrics confusion_matrix sklearn metrics confusion_matrix sklearn metrics log_loss sklearn metrics log_loss sklearn metrics jaccard_similarity_score sklearn metrics jaccard_similarity_score sklearn preprocessing sklearn preprocessing sklearn model_selection train_test_split sklearn model_selection train_test_split pandas pd pylab pl numpy np scipy optimize opt sklearn preprocessing sklearn preprocessing matplotlib pyplot plt sklearn preprocessing sklearn preprocessing sklearn model_selection train_test_split sklearn model_selection train_test_split sklearn linear_model LogisticRegression sklearn linear_model LogisticRegression sklearn metrics confusion_matrix sklearn metrics confusion_matrix sklearn metrics jaccard_similarity_score sklearn metrics jaccard_similarity_score sklearn metrics classification_report confusion_matrix sklearn metrics classification_report confusion_matrix itertools sklearn metrics log_loss sklearn metrics log_loss'
+words = words.replace('  ', ' ')
+WORDS = [x for x in words.split(" ")]
+WORDS.sort()
+words  = ''
+for word in WORDS:
+    words += word + " "
+def grey_color_func(word, font_size, position, orientation, random_state=None,
+                    **kwargs):
+    return "hsl(0, 0%%, %d%%)" % 27 #% random.randint(60, 100)
+
+# This function takes in your text and your mask and generates a wordcloud.
+#def generate_wordcloud(words, mask):
+word_cloud = WordCloud(width = 512,
+                       height = 512,
+                       background_color='white', stopwords=set(STOPWORDS),collocations=False).generate(words)
+plt.figure(figsize=(512,512),facecolor='white', edgecolor='blue')
+plt.imshow(word_cloud)
+plt.axis('off')
+plt.tight_layout(pad=0)
+#plt.show()
+plt.imshow(word_cloud.recolor(color_func='hsl(0, 0%, 27%)', random_state=3),interpolation="bilinear")
+plt.axis("off")
+plt.figure()
+#plt.title("Default colors")
+default_colors=word_cloud.to_array()
+plt.imshow(default_colors, interpolation="bilinear")
+plt.axis("off")
+plt.show()
+word_cloud.to_file('N.png')

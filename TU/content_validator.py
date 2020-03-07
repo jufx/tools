@@ -47,6 +47,7 @@ class TestPyHasher(unittest.TestCase):
         D = Aggregator(pattern="**/TU/*CRYPT*.txt", path_to_files=getcwd())
         self.assertEqual(D.matching_list, [])
 
+
 from levenshtein_mini_matcher import MiniMatcher
 
 
