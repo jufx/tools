@@ -139,7 +139,7 @@ class Skinner:
     def return_neighbors_health(self, curr_row, curr_col):
         n_alive, stop = 0, False
         self.alive_neighbors = n_alive
-        while n_alive < 4 and not stop:
+        while n_alive < 5 and not stop:
             for ii in self.CARDINALITIES:
                 for jj in self.CARDINALITIES:
                     if (ii, jj) != (0, 0):
